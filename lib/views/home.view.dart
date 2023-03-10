@@ -169,15 +169,24 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    FaIcon(
-                      FontAwesomeIcons.chartSimple,
-                      color: Color.fromARGB(255, 88, 88, 88),
+                    InkWell(
+                      onTap: () {},
+                      child: FaIcon(
+                        FontAwesomeIcons.chartSimple,
+                        color: Color.fromARGB(255, 88, 88, 88),
+                      ),
                     ),
-                    FaIcon(FontAwesomeIcons.house,
-                        color: Color.fromARGB(255, 88, 88, 88)),
-                    FaIcon(
-                      FontAwesomeIcons.userLarge,
-                      color: Color.fromARGB(255, 88, 88, 88),
+                    InkWell(
+                      onTap: () {},
+                      child: FaIcon(FontAwesomeIcons.house,
+                          color: Color.fromARGB(255, 88, 88, 88)),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: FaIcon(
+                        FontAwesomeIcons.userLarge,
+                        color: Color.fromARGB(255, 88, 88, 88),
+                      ),
                     )
                   ],
                 ),
