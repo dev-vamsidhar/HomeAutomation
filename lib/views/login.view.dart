@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:homemate/views/home.view.dart';
+import 'package:homemate/controllers/auth.controller.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,8 +7,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _deviceIdController = TextEditingController();
-  final _passCodeController = TextEditingController();
+  final _username = TextEditingController();
+  final _password = TextEditingController();
 
   @override
   void dispose() {
@@ -30,24 +29,25 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _deviceIdController,
+                  controller: _username,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsetsDirectional.only(
                         start: 10, end: 10, top: 10, bottom: 10),
                     border: OutlineInputBorder(),
-                    hintText: 'Enter the device ID',
+                    hintText: 'Enter the Username',
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _passCodeController,
+                  obscureText: true,
+                  controller: _password,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsetsDirectional.only(
                         start: 10, end: 10, top: 10, bottom: 10),
                     border: OutlineInputBorder(),
-                    hintText: 'Enter the passcode',
+                    hintText: 'Enter the password',
                   ),
                 ),
               ),
@@ -56,7 +56,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               InkWell(
                 onTap: () {
-                  Get.to(HomePage());
+                  AuthenticationController()
+                      .login(_username.text, _password.text);
                 },
                 child: Container(
                   height: 40,

@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.0.18
   flutter:
     sdk: flutter
+  firebase_database: ^10.0.16
+  firebase_core: ^2.8.0
 
 dev_dependencies:
   dio: ^5.0.1

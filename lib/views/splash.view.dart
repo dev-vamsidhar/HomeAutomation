@@ -21,9 +21,10 @@ class _SplashScreenState extends State<SplashScreen> {
         width = 200;
       });
     });
-    Future.delayed(Duration(seconds: 4), () async {
+    Future.delayed(Duration(seconds: 2), () async {
       LocalStorage storage = Get.put(LocalStorage());
       bool isLoggedin = await storage.hasKey("isLoggedin");
+      print(isLoggedin);
       if (isLoggedin) {
         Get.offAll(HomePage());
       } else {
