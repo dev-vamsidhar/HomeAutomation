@@ -4,7 +4,6 @@ import 'package:homemate/controllers/localStorage.controller.dart';
 import 'package:homemate/views/home.view.dart';
 import 'package:homemate/views/login.view.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -27,16 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
       bool isLoggedin = await storage.hasKey("isLoggedin");
       if (isLoggedin) {
         Get.offAll(HomePage());
-      }else{
+      } else {
         Get.offAll(LoginPage());
       }
-  
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    Get.put(splashController());
     return Scaffold(
       body: Center(
         child: Column(
