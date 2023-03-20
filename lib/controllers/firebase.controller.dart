@@ -17,15 +17,14 @@ class FirebaseController extends GetxController {
 
   Future updateData(
       {required String dbPath, required Map<String, dynamic> data}) async {
-    DatabaseReference dbref = FirebaseDatabase.instance.ref("devices/$dbPath");
+    DatabaseReference dbref = FirebaseDatabase.instance.ref("$dbPath");
     await dbref.update(
       data,
     );
   }
 
   Future<DataSnapshot> getData({required String dbPath}) async {
-    DataSnapshot snapshot =
-        await FirebaseDatabase.instance.ref(dbPath).get();
+    DataSnapshot snapshot = await FirebaseDatabase.instance.ref(dbPath).get();
     return snapshot;
   }
 

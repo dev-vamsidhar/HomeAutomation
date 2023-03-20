@@ -2,19 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:homemate/controllers/deviceController.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> rooms = [
-      "Living Room",
-      "Kitchen",
-      "Bedroom",
-      "Master Bedroom",
-      "PentHouse"
-    ];
+    DeviceController controller = Get.put(DeviceController(), permanent: true);
+    int currentRoomIndex = 0;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -91,7 +87,7 @@ class HomePage extends StatelessWidget {
                     child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        itemCount: rooms.length,
+                        itemCount: controller.devices.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 13),
@@ -101,7 +97,7 @@ class HomePage extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     Text(
-                                      rooms[index],
+                                      controller.devices[index]["room"],
                                       style: TextStyle(
                                           color: index == 0
                                               ? Colors.black
@@ -133,15 +129,25 @@ class HomePage extends StatelessWidget {
                   child: GridView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemCount: 7,
+                      itemCount: controller.devices.isNotEmpty
+                          ? controller
+                              .devices[currentRoomIndex]["appliances"].length
+                          : 0,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 0.9,
                       ),
                       itemBuilder: (context, index) {
-                        return index == 0
-                            ? iotItemWidget(false)
-                            : iotItemWidget(true);
+                        return iotItemWidget(false,
+                            name: controller.devices[currentRoomIndex]
+                                    ["appliances"][
+                                controller
+                                    .devices[currentRoomIndex]["appliances"]
+                                    .keys
+                                    .toList()[index]],
+                            pin: controller
+                                .devices[currentRoomIndex]["appliances"].keys
+                                .toList()[index]);
                       }),
                 ),
                 SizedBox(
@@ -170,7 +176,9 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        DeviceController().getDevices();
+                      },
                       child: FaIcon(
                         FontAwesomeIcons.chartSimple,
                         color: Color.fromARGB(255, 88, 88, 88),
@@ -198,7 +206,8 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget iotItemWidget(bool status) {
+  Widget iotItemWidget(bool status,
+      {required String name, required String pin}) {
     return !status
         ? Padding(
             padding: const EdgeInsets.all(12.0),
@@ -257,12 +266,20 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     FaIcon(
-                      FontAwesomeIcons.lightbulb,
+                      name.toLowerCase() == "light"
+                          ? FontAwesomeIcons.lightbulb
+                          : name.toLowerCase() == "fan"
+                              ? FontAwesomeIcons.fan
+                              : name.toLowerCase() == "ac"
+                                  ? FontAwesomeIcons.snowflake
+                                  : name.toLowerCase() == "tv"
+                                      ? FontAwesomeIcons.tv
+                                      : FontAwesomeIcons.plug,
                       color: Colors.white,
                       size: 29,
                     ),
                     Text(
-                      "Main Light",
+                      name,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,

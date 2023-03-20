@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage extends GetxController {
-  Future<String> getData(String key) async {
+  static Future<String> getData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey(key)) {
       return prefs.getString(key) ?? "";

@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:homemate/controllers/firebase.controller.dart';
 import 'package:homemate/controllers/localStorage.controller.dart';
-import 'package:homemate/views/initialise.view.dart';
 
 class AutomationController extends GetxController {
   @override
@@ -32,10 +31,10 @@ class AutomationController extends GetxController {
 
   Future togglePin({required String pin}) async {
     try {
-      LocalStorage localStorage = LocalStorage();
-      String deviceName = await localStorage.getData("deviceName");
+      
+      String deviceName = await LocalStorage.getData("deviceName");
       if (deviceName.isEmpty) {
-        Get.offAll(InitialiseView());
+        // Get.offAll(InitialiseView());
         return;
       }
       FirebaseController firebaseController = Get.put(FirebaseController());
@@ -47,10 +46,9 @@ class AutomationController extends GetxController {
   }
 
   Future getAllpins() async {
-    LocalStorage localStorage = LocalStorage();
-    String deviceName = await localStorage.getData("deviceName");
+    String deviceName = await LocalStorage.getData("deviceName");
     if (deviceName.isEmpty) {
-      Get.offAll(InitialiseView());
+      // Get.offAll(InitialiseView());
       return;
     }
     FirebaseController controller = Get.put(FirebaseController());
