@@ -25,6 +25,7 @@ class FirebaseController extends GetxController {
 
   Future<DataSnapshot> getData({required String dbPath}) async {
     DataSnapshot snapshot = await FirebaseDatabase.instance.ref(dbPath).get();
+    print(snapshot.value);
     return snapshot;
   }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "718457172982",
+    "firebase_url": "https://iot-db-8f718-default-rtdb.firebaseio.com",
+    "project_id": "iot-db-8f718",
+    "storage_bucket": "iot-db-8f718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718457172982:android:c6bfd06ce6552ac3130dd7",
+        "android_client_info": {
+          "package_name": "com.fire.homemate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718457172982-6q7hfr4v6kjj85m9velhb81fud0v9ojs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrNa5v-uB_GbxOFTuvJd1nbV-kVWjP96c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718457172982-6q7hfr4v6kjj85m9velhb81fud0v9ojs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
