@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 25),
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: ListView.builder(
                           shrinkWrap: true,
@@ -100,34 +100,32 @@ class HomePage extends StatelessWidget {
                                         currentRoomIndex = index;
                                         controller.update();
                                       },
-                                      child: Container(
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              controller.devices[index]["room"],
-                                              style: TextStyle(
-                                                  color:
-                                                      index == currentRoomIndex
-                                                          ? Colors.black
-                                                          : Colors.grey[700],
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize:
-                                                      index == 0 ? 17.5 : 16),
-                                            ),
-                                            SizedBox(height: 7),
-                                            index == currentRoomIndex
-                                                ? Container(
-                                                    height: 5,
-                                                    width: 40,
-                                                    decoration: BoxDecoration(
-                                                        color: Colors.blue,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10)),
-                                                  )
-                                                : Container()
-                                          ],
-                                        ),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            controller.devices[index]["room"],
+                                            style: TextStyle(
+                                                color:
+                                                    index == currentRoomIndex
+                                                        ? Colors.black
+                                                        : Colors.grey[700],
+                                                fontWeight: FontWeight.bold,
+                                                fontSize:
+                                                    index == 0 ? 17.5 : 16),
+                                          ),
+                                          SizedBox(height: 7),
+                                          index == currentRoomIndex
+                                              ? Container(
+                                                  height: 5,
+                                                  width: 40,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.blue,
+                                                      borderRadius:
+                                                          BorderRadius
+                                                              .circular(10)),
+                                                )
+                                              : Container()
+                                        ],
                                       ),
                                     ),
                                   )
@@ -135,7 +133,7 @@ class HomePage extends StatelessWidget {
                                     onTap: () {
                                       Get.to(AddDevice());
                                     },
-                                    child: Container(
+                                    child: SizedBox(
                                       height: 10,
                                       child: Text(
                                         "+ Add Device",
