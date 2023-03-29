@@ -184,51 +184,7 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 60,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            offset: Offset(1, 1),
-                            color: Colors.black,
-                            blurRadius: 5,
-                            spreadRadius: 1)
-                      ],
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          DeviceController().getDevices();
-                        },
-                        child: FaIcon(
-                          FontAwesomeIcons.chartSimple,
-                          color: Color.fromARGB(255, 88, 88, 88),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: FaIcon(FontAwesomeIcons.house,
-                            color: Color.fromARGB(255, 88, 88, 88)),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: FaIcon(
-                          FontAwesomeIcons.userLarge,
-                          color: Color.fromARGB(255, 88, 88, 88),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
+            
             ],
           );
         }), // White background color

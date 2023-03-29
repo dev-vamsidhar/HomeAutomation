@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:homemate/controllers/localStorage.controller.dart';
 import 'package:homemate/views/home.view.dart';
 import 'package:homemate/views/login.view.dart';
+import 'package:homemate/views/navigation.view.dart';
 
 class AuthenticationController {
   void login(String username, String password) async {
@@ -24,7 +25,7 @@ class AuthenticationController {
           await localStorage.setData("isLoggedin", "true");
           await localStorage.setData("username", username);
           EasyLoading.showSuccess("Logged in");
-          Get.offAll(HomePage());
+          Get.offAll(Navigation());
         } else {
           EasyLoading.showError("Incorrect password");
         }

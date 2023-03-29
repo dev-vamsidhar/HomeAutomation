@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:homemate/controllers/localStorage.controller.dart';
 import 'package:homemate/views/home.view.dart';
 import 'package:homemate/views/login.view.dart';
+import 'package:homemate/views/navigation.view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       bool isLoggedin = await storage.hasKey("isLoggedin");
       print(isLoggedin);
       if (isLoggedin) {
-        Get.offAll(HomePage());
+        Get.offAll(Navigation());
       } else {
         Get.offAll(LoginPage());
       }
