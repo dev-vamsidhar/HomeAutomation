@@ -17,7 +17,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  List<Widget> pages = [StatisticsPage(), HomePage(), ShedulePage()];
+  List<Widget> pages = [StatisticsPage(), HomePage(), SchedulePage()];
   int index = 1;
   @override
   Widget build(BuildContext context) {

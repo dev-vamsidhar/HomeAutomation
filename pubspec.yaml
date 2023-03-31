@@ -40,6 +40,7 @@ dependencies:
   firebase_database: ^10.0.16
   firebase_core: ^2.8.0
   fl_chart: ^0.61.0
+  cron: ^0.5.1
 
 dev_dependencies:
   dio: ^5.0.1

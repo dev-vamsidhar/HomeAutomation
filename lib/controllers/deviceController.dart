@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:homemate/controllers/firebase.controller.dart';
 import 'package:homemate/views/devices/devices.view.dart';
 import 'package:homemate/views/home.view.dart';
+import 'package:homemate/views/navigation.view.dart';
 
 import 'localStorage.controller.dart';
 
@@ -18,6 +19,8 @@ class DeviceController extends GetxController {
   }
 
   List<Map<String, dynamic>> devices = [];
+  Map<String, Map<String, dynamic>> appliances = {};
+
   Future getDevices() async {
     FirebaseController controller = Get.put(FirebaseController());
     String username = await LocalStorage.getData("username");
@@ -39,7 +42,9 @@ class DeviceController extends GetxController {
           "appliances": value["appliances"],
           "pins": value["pins"]
         });
+        appliances[value['name']] = value["appliances"];
       });
+      print(devices);
       update();
     }
   }
@@ -72,7 +77,7 @@ class DeviceController extends GetxController {
     });
     await controller.updateData(dbPath: "/devices/$deviceName", data: pins);
     await getDevices();
-    Get.offAll(HomePage());
+    Get.offAll(Navigation());
   }
 
   Future toggleSwitch(
@@ -80,7 +85,7 @@ class DeviceController extends GetxController {
       required Map<String, dynamic> pins,
       required String pinName,
       required String status}) async {
-    EasyLoading.show(status: status == "0" ? "turning off" : "Turning on");
+    EasyLoading.show(status: status == "0" ? "turning on" : "Turning off");
     String username = await LocalStorage.getData("username");
     if (username.isEmpty) {
       username = "vamsubala1";
