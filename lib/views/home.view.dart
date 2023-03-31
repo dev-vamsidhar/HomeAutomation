@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:homemate/controllers/auth.controller.dart';
 import 'package:homemate/controllers/deviceController.dart';
 import 'package:homemate/views/devices/adddevice.view.dart';
 
@@ -63,19 +64,62 @@ class HomePage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(1000)),
-                              child: Center(
-                                  child: FaIcon(
-                                FontAwesomeIcons.user,
-                                color: Colors.white,
-                              )),
+                          InkWell(
+                            onTap: () {
+                              showMenu(
+                                  context: context,
+                                  position: RelativeRect.fromLTRB(
+                                      Get.width, 100, 0, 0),
+                                  items: [
+                                    PopupMenuItem(
+                                      onTap: () {
+                                        AuthenticationController().logout();
+                                      },
+                                      value: 1,
+                                      // row has two child icon and text.
+                                      child: Row(
+                                        children: const [
+                                          FaIcon(FontAwesomeIcons.signOut),
+                                          SizedBox(
+                                            // sized box with width 10
+                                            width: 10,
+                                          ),
+                                          Text("Logout")
+                                        ],
+                                      ),
+                                    ),
+                                    // popupmenu item 2
+                                    // PopupMenuItem(
+                                    //   value: 2,
+                                    //   // row has two child icon and text
+                                    //   child: Row(
+                                    //     children: const [
+                                    //       Icon(Icons.chrome_reader_mode),
+                                    //       SizedBox(
+                                    //         // sized box with width 10
+                                    //         width: 10,
+                                    //       ),
+                                    //       Text("About")
+                                    //     ],
+                                    //   ),
+                                    // ),
+                                  ]);
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(1000)),
+                                child: Center(
+                                    child: FaIcon(
+                                  FontAwesomeIcons.user,
+                                  color: Colors.white,
+                                )),
+                              ),
                             ),
                           )
                         ],
@@ -105,10 +149,9 @@ class HomePage extends StatelessWidget {
                                           Text(
                                             controller.devices[index]["room"],
                                             style: TextStyle(
-                                                color:
-                                                    index == currentRoomIndex
-                                                        ? Colors.black
-                                                        : Colors.grey[700],
+                                                color: index == currentRoomIndex
+                                                    ? Colors.black
+                                                    : Colors.grey[700],
                                                 fontWeight: FontWeight.bold,
                                                 fontSize:
                                                     index == 0 ? 17.5 : 16),
@@ -121,8 +164,8 @@ class HomePage extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       color: Colors.blue,
                                                       borderRadius:
-                                                          BorderRadius
-                                                              .circular(10)),
+                                                          BorderRadius.circular(
+                                                              10)),
                                                 )
                                               : Container()
                                         ],
@@ -184,7 +227,6 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-            
             ],
           );
         }), // White background color
@@ -241,10 +283,10 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   RotatedBox(
-                    quarterTurns: 3,
+                    quarterTurns: 5,
                     child: FlutterSwitch(
-                        activeToggleColor: Colors.green,
-                        inactiveToggleColor: Colors.red,
+                        activeToggleColor: Colors.red,
+                        inactiveToggleColor: Colors.green,
                         padding: 2,
                         inactiveColor: Colors.white,
                         activeColor: Colors.white,
