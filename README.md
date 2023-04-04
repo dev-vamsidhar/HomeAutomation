@@ -15,9 +15,7 @@ Homeautomation supports scheduling and routines
 ## Screenshots of amazing UI
 
 <img src="screen1.png" width="200" height="400" />
-
-![Screen 1](screen1.png)
-![Screen 2](screen2.png)
-![Screen 3](screen3.png)
-![Screen 4](screen4.png)
-![Screen 5](screen5.png)
+<img src="screen2.png" width="200" height="400" />
+<img src="screen3.png" width="200" height="400" />
+<img src="screen4.png" width="200" height="400" />
+<img src="screen5.png" width="200" height="400" />
