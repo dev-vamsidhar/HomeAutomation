@@ -12,8 +12,9 @@ Homemate is multiple platform application which supports android,IOS,web,MacOS,W
 
 Homeautomation supports scheduling and routines
 
-
 ## Screenshots of amazing UI
+
+<img src="screen1.png" width="200" height="400" />
 
 ![Screen 1](screen1.png)
 ![Screen 2](screen2.png)
