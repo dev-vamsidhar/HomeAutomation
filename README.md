@@ -1,16 +1,22 @@
-# homemate
+# HomeMate - A single solution for your to be automated
 
-A new Flutter project.
+Homemate is multiple platform application which supports android,IOS,web,MacOS,Windows. Which is connected to the hardware i.e nodemcu through firestore realtime database and control the applications that are linked to the nodemcu
 
-## Getting Started
+## TechStack Used
 
-This project is a starting point for a Flutter application.
+- Flutter
+- Firebase realtime database
+- Firebase authentication
+- Firebase Storage
+- Web side technologies to handle cron jobs
 
-A few resources to get you started if this is your first Flutter project:
+Homeautomation supports scheduling and routines
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots of amazing UI
+
+![Screen 1](screen1.png)
+![Screen 2](screen2.png)
+![Screen 3](screen3.png)
+![Screen 4](screen4.png)
+![Screen 5](screen5.png)
